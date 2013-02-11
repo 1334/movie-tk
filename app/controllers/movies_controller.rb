@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     movie = Omdb::Client.search_by_imdb_id params["movie"]["imdb_id"]
     if movie.is_a? Omdb::MovieNotFound
       @movie = Movie.new imdb_id: params["movie"]["imdb_id"]
-      @movie.errors.add(:imdb_id, "movie not found")
+      @movie.errors.add(:imdb_id, "movie id not found")
       render action: "new"
     else
       Movie.new_from_omdb movie
