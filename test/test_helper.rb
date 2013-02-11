@@ -42,4 +42,9 @@ class ActionDispatch::IntegrationTest
       raise "I don't know how to log in!"
     end
   end
+
+  def visit_and_authenticate path
+    basic_auth 'testuser', 'testpass'
+    visit path
+  end
 end
