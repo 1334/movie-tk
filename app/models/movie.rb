@@ -20,6 +20,8 @@ class Movie < ActiveRecord::Base
       year: data["Year"]
     }
 
-    new(att).save
+    movie = new(att)
+    movie.save
+    movie
   end
 end
