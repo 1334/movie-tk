@@ -26,11 +26,14 @@ gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'minitest-spec-rails'
 end
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'vcr'
+  gem 'webmock', require: false
 end
 
 group :production do
