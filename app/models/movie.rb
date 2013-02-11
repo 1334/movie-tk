@@ -1,6 +1,9 @@
 class Movie < ActiveRecord::Base
   attr_accessible :actor, :director, :genere, :imdb_id, :imdb_rating, :plot, :poster, :rated, :runtime, :title, :writer, :year
 
+  validates :title, presence: true
+  validates :imdb_id, uniqueness: true
+
   def self.new_from_omdb data
     att = {
       actor: data["Actor"],
@@ -17,6 +20,6 @@ class Movie < ActiveRecord::Base
       year: data["Year"]
     }
 
-    Movie.new(att).save
+    new(att).save
   end
 end
