@@ -4,9 +4,6 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.11'
 
-gem 'sqlite3', group: [:development, :test]
-gem 'pg', group: :production
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,17 +19,21 @@ end
 
 gem 'jquery-rails'
 
+gem 'simple_form'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :development, :test do
+  gem 'sqlite3'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+end
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
