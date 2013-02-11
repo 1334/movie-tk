@@ -34,6 +34,7 @@ group :test do
   gem 'database_cleaner'
   gem 'vcr'
   gem 'webmock', require: false
+  gem 'factory_girl_rails'
 end
 
 group :production do
