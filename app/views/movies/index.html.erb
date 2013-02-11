@@ -1,2 +1,8 @@
 <h1>Movies</h1>
-<p>There are no movies</p>
+<% if @movies.empty? %>
+  <p>There are no movies</p>
+<% else %>
+  <% @movies.each do |movie| %>
+    <%= movie.title %>
+  <% end %>
+<% end %>
