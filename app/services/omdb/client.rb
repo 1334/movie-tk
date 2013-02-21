@@ -19,6 +19,5 @@ module Omdb
     end
   end
 
-  class MovieNotFound
-  end
+  MovieNotFound = Class.new
 end
