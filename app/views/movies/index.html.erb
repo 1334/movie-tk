@@ -2,7 +2,14 @@
 <% if @movies.empty? %>
   <p>There are no movies</p>
 <% else %>
-  <% @movies.each do |movie| %>
-    <%= movie.title %>
-  <% end %>
+  <table class="table" border="0">
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.director %></td>
+      </tr>  
+    <% end %>
+  </table>
 <% end %>
+
+<%= link_to 'Add new movie', new_movie_path, :class => 'btn btn-primary btn-large' %>
